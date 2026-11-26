@@ -6,7 +6,7 @@ using EventRegistrationAPI_RostyslavShcherbyk.DTOs;
 
 namespace EventRegistrationAPI_RostyslavShcherbyk.Services
 {
-    public class EventService
+    public class EventService : IEventService
     {
         private readonly AppDbContext _context;
 

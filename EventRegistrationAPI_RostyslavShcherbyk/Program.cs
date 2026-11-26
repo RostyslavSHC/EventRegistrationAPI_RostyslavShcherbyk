@@ -2,6 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using EventRegistrationAPI_RostyslavShcherbyk.Data;
+using EventRegistrationAPI_RostyslavShcherbyk.Services;
 
 namespace EventRegistrationAPI_RostyslavShcherbyk
 {
@@ -27,6 +28,10 @@ namespace EventRegistrationAPI_RostyslavShcherbyk
             // Register AppDbContext and connect to SQL Server using conection string
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Register event service to handle event operations
+            // In short, it creates 1 instance of EventSrvice per HTTP requeest and tells ASP.NET CORE to provide EventService when controller requests IEventService
+            builder.Services.AddScoped<IEventService, EventService>();
 
             var app = builder.Build();
 
