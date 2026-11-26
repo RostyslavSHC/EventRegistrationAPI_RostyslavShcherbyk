@@ -47,6 +47,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
                 // Create registration using registration service
                 var created = await _registrationService.CreateAsync(id, dto);
 
+
                 // If event doesn't exist, return 404
                 if (created == null)
                     return NotFound();
