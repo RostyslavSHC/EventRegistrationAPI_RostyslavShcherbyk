@@ -11,5 +11,8 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
 
         // Get spcific event by its ID
         Task<EventDto?> GetByIdAsync(int id);
+
+        // Create new campus event
+        Task<EventDto> CreateAsync(CreateEventDto dto);
     }
 }

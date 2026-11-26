@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using EventRegistrationAPI_RostyslavShcherbyk.Data;
 using EventRegistrationAPI_RostyslavShcherbyk.DTOs;
+using EventRegistrationAPI_RostyslavShcherbyk.Models;
 
 namespace EventRegistrationAPI_RostyslavShcherbyk.Services
 {
@@ -57,5 +58,36 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
                 })
                 .FirstOrDefaultAsync();
         }
+
+
+
+
+
+        // Create new campus event
+        public async Task<EventDto> CreateAsync(CreateEventDto dto)
+        {
+            // Convert received DTO into event entity
+            var campusEvent = new Event
+            {
+                Title = dto.Title,
+                Location = dto.Location,
+                EventDate = dto.EventDate,
+                Capacity = dto.Capacity
+            };
+
+            // Add new event and save it to db
+            _context.Events.Add(campusEvent);
+            await _context.SaveChangesAsync();
+
+            // Return our new just created event as DTO
+                // Instead of writing DTO mapping again, I simply reuse my existing method
+                // This automatically includes RegisteredCount and SpotsLeft
+            return (await GetByIdAsync(campusEvent.EventId))!;
+        }
+
+
+
+
+
     }
 }

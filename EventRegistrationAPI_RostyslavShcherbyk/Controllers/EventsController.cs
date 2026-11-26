@@ -31,9 +31,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
             return Ok(events);
         }
 
-
-
-
         // GET: api/Events/5          -          Get specific event by its ID
         [HttpGet("{id}")]
         public async Task<ActionResult<EventDto>> GetEvent(int id)
@@ -46,6 +43,23 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
 
             return Ok(campusEvent);
         }
+
+
+
+
+
+        // POST: api/Events          -          Create a new campus event
+        [HttpPost]
+        public async Task<ActionResult<EventDto>> CreateEvent(CreateEventDto dto)
+        {
+            // Create new event using event service
+            var created = await _eventService.CreateAsync(dto);
+
+            // Return 201 with the newly created event
+            return CreatedAtAction(nameof(GetEvent), new { id = created.EventId }, created);
+        }
+
+
 
 
 
