@@ -96,5 +96,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
 
 
 
+
     }
 }
