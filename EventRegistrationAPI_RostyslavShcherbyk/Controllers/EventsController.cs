@@ -48,7 +48,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
 
 
 
-        // POST: api/Events          -          Create a new campus event
+        // POST: api/Events          -          Create new campus event
         [HttpPost]
         public async Task<ActionResult<EventDto>> CreateEvent(CreateEventDto dto)
         {
