@@ -13,7 +13,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Data
         }
 
         public DbSet<Event> Events { get; set; } // Table that stores all campus events
-        public DbSet<Registration> Registrations { get; set; } // Table that stores all event registrations
+        public DbSet<Registration> Registrations { get; set; } // Table that stores all event regisrations
 
 
 
@@ -38,7 +38,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Data
                     Capacity = 50
                 },
 
-                // Future event with available spots
+                // Future event with avalable spots
                 new Event
                 {
                     EventId = 2,
@@ -71,7 +71,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Data
 
 
 
-            // Add 2 registrations to event 3 to make it full
+            // Add 2 registrations to vent 3 to make it full
             modelBuilder.Entity<Registration>().HasData(
                 new Registration
                 {
@@ -91,9 +91,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Data
                     RegisteredOn = new DateTime(2026, 11, 21, 12, 0, 0)
                 }
             );
-
-
-
 
 
 

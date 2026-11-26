@@ -6,7 +6,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Validation
 {
     public class FutureDateAttribute : ValidationAttribute
     {
-        // Check if provided date and time are in the future
+        // Check if provided date and time are in future
         public override bool IsValid(object? value)
         {
             if (value is DateTime date)

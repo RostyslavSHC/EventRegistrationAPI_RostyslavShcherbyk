@@ -1,4 +1,4 @@
-﻿// this file defines what info is needed to create new event
+﻿// This file defines what info is needed to create new event
 
 using System.ComponentModel.DataAnnotations;
 using EventRegistrationAPI_RostyslavShcherbyk.Validation;

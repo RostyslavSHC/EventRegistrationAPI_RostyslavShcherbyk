@@ -1,4 +1,4 @@
-﻿// This file defines what operrations the registration service must provide
+﻿// This file defines what operrations  registration service must provide
 
 using EventRegistrationAPI_RostyslavShcherbyk.DTOs;
 
@@ -12,7 +12,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
         // Register person for specific event
         Task<RegistrationDto?> CreateAsync(int eventId, CreateRegistrationDto dto);
 
-        // Cancel registration by its ID
+        // Cancel registration by ID
         Task<bool> DeleteAsync(int id);
     }
 }

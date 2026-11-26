@@ -13,7 +13,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
     {
         private readonly IRegistrationService _registrationService;
 
-        // Gets access to the registration service
+        // Gets access to registration service
         public RegistrationsController(IRegistrationService registrationService)
         {
             _registrationService = registrationService;
@@ -38,10 +38,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
 
 
 
-
-
-
-
         // POST: api/Events/3/registrations          -          Register person for specific event
         [HttpPost("/api/events/{id}/registrations")]
         public async Task<ActionResult<RegistrationDto>> CreateRegistration(int id, CreateRegistrationDto dto)
@@ -51,27 +47,25 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
                 // Create registration using registration service
                 var created = await _registrationService.CreateAsync(id, dto);
 
-                // Return 404 if event does not exist
+                // If event doesn't exist, return 404
                 if (created == null)
                     return NotFound();
 
-                // Return 201 with newly created registration
+                // Otherwise, return 201 with newly created registration
                 return StatusCode(201, created);
             }
             catch (ArgumentException ex)
             {
-                // Return 400 if event is in the past
+                // If eventt is in the past, return 400
                 return BadRequest(ex.Message);
             }
             catch (InvalidOperationException ex)
             {
-                // Return 409 if email is already registered or event is full
+
+                // If email is already registered or event is full, return 409
                 return Conflict(ex.Message);
             }
         }
-
-
-
 
 
 
@@ -81,20 +75,13 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
         {
             bool deleted = await _registrationService.DeleteAsync(id);
 
-            // Return 404 if registration doesn't exist
+            //  If registration doesn't exist, return 404
             if (!deleted)
                 return NotFound();
 
-            // Return 204 if registration was sucessfully deleted
+            // Otherwise, if registration was sucessfully deleted, return 204
             return NoContent();
         }
-
-
-
-
-
-
-
 
 
     }

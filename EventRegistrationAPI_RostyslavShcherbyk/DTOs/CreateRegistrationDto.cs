@@ -10,7 +10,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.DTOs
         [Required(ErrorMessage = "Student name is required.")]
         public string StudentName { get; set; } = string.Empty;
 
-        // Email address of person registering - Required, must be valid email
+        // Email address of person who is registering - Required, must be valid email
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Please enter a valid email address.")]
         public string Email { get; set; } = string.Empty;

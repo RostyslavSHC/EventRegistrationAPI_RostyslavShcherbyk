@@ -30,7 +30,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             // Register event service to handle event operations
-            // In short, it creates 1 instance of EventSrvice per HTTP requeest and tells ASP.NET CORE to provide EventService when controller requests IEventService
+            // In short, it creates 1 instance of EventSrvice per HTTP request and tells ASP.NET CORE to provide EventService when controller requests IEventService
             builder.Services.AddScoped<IEventService, EventService>();
 
             // Register registration service to handle registration operations

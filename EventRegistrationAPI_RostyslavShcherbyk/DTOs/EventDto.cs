@@ -7,7 +7,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.DTOs
         // ID of event
         public int EventId { get; set; }
 
-        // Name of event
+        // Name of evnet
         public string Title { get; set; } = string.Empty;
 
         // Where event is located
@@ -19,10 +19,10 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.DTOs
         // Maximum number of people who can register
         public int Capacity { get; set; }
 
-        // Number of people already registered
+        // Number of people arleady registered
         public int RegisteredCount { get; set; }
 
-        // Number of available spots
+        // Number of available spots left
         public int SpotsLeft { get; set; }
     }
 }

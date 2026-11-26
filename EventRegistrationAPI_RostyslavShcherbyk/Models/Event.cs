@@ -11,7 +11,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Models
         // ID of event - Primary key
         public int EventId { get; set; }
 
-        // Name of event - Required, maximum 100 characters
+        // Name of eevnt - Required, maximum 100 characters
         [Required]
         [StringLength(100)]
         public string Title { get; set; } = string.Empty;

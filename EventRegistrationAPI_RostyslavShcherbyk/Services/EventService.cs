@@ -11,7 +11,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
     {
         private readonly AppDbContext _context;
 
-        // Gets access to databbase
+        // Gets acess to databbase
         public EventService(AppDbContext context)
         {
             _context = context;
@@ -31,7 +31,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
                     EventDate = e.EventDate,
                     Capacity = e.Capacity,
 
-                    // Calculate # of registered people and available spots
+                    // Calluclate # of registered people and available spots
                     RegisteredCount = e.Registrations.Count,
                     SpotsLeft = e.Capacity - e.Registrations.Count
                 })

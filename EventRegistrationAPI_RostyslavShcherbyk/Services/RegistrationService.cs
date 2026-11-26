@@ -20,11 +20,10 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
 
 
 
-
         // Get all registrrations for specific event
         public async Task<List<RegistrationDto>?> GetAllAsync(int eventId)
         {
-            // Check if event exists
+            // Check if event exissts
             bool exists = await _context.Events
                 .AnyAsync(e => e.EventId == eventId);
 
@@ -44,6 +43,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
                 })
                 .ToListAsync();
         }
+
 
 
 
@@ -95,7 +95,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
                 RegisteredOn = DateTime.Now
             };
 
-            // Add registration and save it to database
+            // Add registration and save it to db
             _context.Registrations.Add(registration);
             await _context.SaveChangesAsync();
 
@@ -114,10 +114,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
 
 
 
-
-
-
-        // Cancel registration by its ID
+        // Cancel reggistration by its ID
         public async Task<bool> DeleteAsync(int id)
         {
             var registration = await _context.Registrations.FindAsync(id);
@@ -126,7 +123,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Services
             if (registration == null)
                 return false;
 
-            // Remove registration from db to free a spot
+            // Remove registration from db to free spot
             _context.Registrations.Remove(registration);
             await _context.SaveChangesAsync();
 

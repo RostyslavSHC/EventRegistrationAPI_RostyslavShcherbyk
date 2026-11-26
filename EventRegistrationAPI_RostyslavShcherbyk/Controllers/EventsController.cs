@@ -13,7 +13,7 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
     {
         private readonly IEventService _eventService;
 
-        // Gets access to the event service
+        // Get access to the event service
         public EventsController(IEventService eventService)
         {
             _eventService = eventService;
@@ -31,6 +31,8 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
             return Ok(events);
         }
 
+
+
         // GET: api/Events/5          -          Get specific event by its ID
         [HttpGet("{id}")]
         public async Task<ActionResult<EventDto>> GetEvent(int id)
@@ -46,8 +48,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
 
 
 
-
-
         // POST: api/Events          -          Create new campus event
         [HttpPost]
         public async Task<ActionResult<EventDto>> CreateEvent(CreateEventDto dto)
@@ -58,10 +58,6 @@ namespace EventRegistrationAPI_RostyslavShcherbyk.Controllers
             // Return 201 with the newly created event
             return CreatedAtAction(nameof(GetEvent), new { id = created.EventId }, created);
         }
-
-
-
-
 
 
 
