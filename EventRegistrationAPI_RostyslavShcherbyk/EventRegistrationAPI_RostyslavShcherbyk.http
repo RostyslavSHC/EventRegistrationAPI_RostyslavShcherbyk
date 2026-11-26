@@ -1,0 +1,6 @@
+@EventRegistrationAPI_RostyslavShcherbyk_HostAddress = http://localhost:5223
+
+GET {{EventRegistrationAPI_RostyslavShcherbyk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
